@@ -1,8 +1,11 @@
-export const switchAside = (openState,eventFn) => dispatch => {
+import store from 'components/app/store';
+
+export const switchAside = (openState) => dispatch => {
     if(openState){
         dispatch({type:'NAV_ASIDE_OPEN'});
     }else{
-        document.removeEventListener('click',eventFn);
+        const state = store.getState();
+        document.removeEventListener('click',state.asideMenu.eventFn);
         dispatch({type:'NAV_ASIDE_CLOSE'});
     }
 };

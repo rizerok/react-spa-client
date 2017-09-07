@@ -2,7 +2,7 @@ import React from 'react';
 
 import style from './root-footer.styl';
 
-import NavList from 'components/nav/list';
+import NavListHorizontal from 'components/nav/list-horizontal';
 
 class RootFooter extends React.Component{
     constructor(props){
@@ -12,7 +12,7 @@ class RootFooter extends React.Component{
         const {site_info} = this.props.company;
         return (
             <div className={style.footer}>
-                <NavList nav={this.props.nav} />
+                <NavListHorizontal nav={this.props.nav} />
                 <div>{site_info}</div>
             </div>
         );

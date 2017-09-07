@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 
-import style from './nav-list.styl';
+import style from './nav-list-vertical.styl';
 
-class NavList extends React.Component{
+class NavListVertical extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         let navList = null;
-        if(this.props.nav){
-            navList = <ul className={style.list}>
-                {this.props.nav.map((n,i)=>(
+        if(this.props.list){
+            navList = <ul className={style}>
+                {this.props.list.map((n,i)=>(
                     <li key={i}>
                         <NavLink className={style.listItem}
                                  to={n.url}
@@ -26,6 +27,7 @@ class NavList extends React.Component{
                 ))}
             </ul>;
         }
+
         return (
 
             <nav className={style.navDropDownList}>
@@ -36,4 +38,6 @@ class NavList extends React.Component{
     }
 }
 
-export default NavList;
+export default connect(
+    ({nav:{list}}) => ({list})
+)(NavListVertical);

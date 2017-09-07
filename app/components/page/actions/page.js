@@ -1,4 +1,11 @@
+import {
+    currentStateRequest,
+    currentStateReceive,
+    currentStateStartChange
+} from 'components/app/actions/current-state';
+
 export const getPage = (slug) => (dispatch,getState) => {//actions creator
+    dispatch(currentStateStartChange());
     //find in cache
     const store = getState();
     let page = store.pages && store.pages.list && store.pages.list.find(p=>p.slug===slug);
@@ -12,9 +19,7 @@ export const getPage = (slug) => (dispatch,getState) => {//actions creator
         });
     }
     //if no find - fetch
-    dispatch({
-        type:'CURRENT_STATE_REQUEST'
-    });
+    dispatch(currentStateRequest());
     dispatch({//action
         type:'GET',
         payload:{
@@ -37,9 +42,7 @@ export const getPage = (slug) => (dispatch,getState) => {//actions creator
                         source:'fetch'
                     }
                 });
-                dispatch({
-                    type:'CURRENT_STATE_RECEIVE'
-                });
+                dispatch(currentStateReceive());
             });
 
     },2000);
