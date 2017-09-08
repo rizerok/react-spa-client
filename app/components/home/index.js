@@ -1,14 +1,31 @@
 import React from 'react';
-import PageDefault from 'components/page/default';
+
 import style from './home.styl';
 
-class Home extends React.Component{
-    constructor(){
-        super();
+import Page from 'components/page/classes';
+import UiPreloader from 'components/ui/preloader';
+
+class Home extends Page.Default{
+    constructor(props){
+        super(props);
     }
     render(){
+        let content;
+        if(this.props.page){
+            content = (
+                <div>
+                    <div>Hello!</div>
+                    <div>{this.props.page.title}</div>
+                    <div>{this.props.page.content}</div>
+                </div>
+            );
+        }else{
+            content = <UiPreloader />;
+        }
         return (
-            <div>Home</div>
+            <div className={style.pageDefault}>
+                {content}
+            </div>
         );
     }
 }

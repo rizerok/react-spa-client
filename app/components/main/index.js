@@ -8,8 +8,8 @@ import {
 
 import style from './main.styl';
 
-import Home from 'components/home';
-import About from 'components/about';
+import HomeProvider from 'components/home/provider';
+import AboutProvider from 'components/about/provider';
 
 import PageRouter from 'components/page/router';
 
@@ -20,8 +20,8 @@ class Main extends React.Component{
     render(){
         return (
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
+                <Route exact path="/" component={HomeProvider} />
+                <Route path="/about" component={AboutProvider} />
                 <Route path="/page" component={PageRouter} />
                 <Route render={()=><div>Page not found</div>} />
             </Switch>

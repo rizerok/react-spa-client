@@ -2,20 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 
-import { getPage } from 'components/page/actions/page';
+import { getPage } from '../actions/page';
 
-//import PageDefault from '../default';
+import Page from '../classes';
+import PageDefault from '../default';
 
-class PageProvider extends React.Component{
+class PageProvider extends Page.Provider{
     constructor(props){
         super(props);
-        this.page = null;
-    }
-    getPage(){
-        this.props.getPage('absoute');
-    }
-    componentWillMount(){
-        this.getPage();
     }
     render(){
         return (
@@ -26,10 +20,13 @@ class PageProvider extends React.Component{
 
 export default withRouter(connect(
     (state,ownProps) => {
+        //always first, complete props, current state
         const {slug} = ownProps.match.params;
         const {list} = state.pages;
-        const newState = {page:list.find(p=>p.slug===slug)};
-        return newState;
+        return {
+            page:list.find(p=>p.slug===slug),
+            slug
+        };
     },
     dispatch  => ({
         getPage: (slug) => {

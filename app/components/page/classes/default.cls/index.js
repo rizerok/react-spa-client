@@ -1,11 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import style from './page-default.styl';
 
-import style from './about.styl';
-
-import Page from 'components/page/classes';
 import UiPreloader from 'components/ui/preloader';
 
-class About extends Page.Default{
+class Default extends React.Component{
     constructor(props){
         super(props);
     }
@@ -14,7 +13,6 @@ class About extends Page.Default{
         if(this.props.page){
             content = (
                 <div>
-                    <div>ABOUT YEAH</div>
                     <div>{this.props.page.title}</div>
                     <div>{this.props.page.content}</div>
                 </div>
@@ -30,4 +28,4 @@ class About extends Page.Default{
     }
 }
 
-export default About;
+export default Default;

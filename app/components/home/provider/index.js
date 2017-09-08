@@ -5,15 +5,16 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { getPage } from 'components/page/actions/page';
 
 import Page from 'components/page/classes';
-import About from '../index';
+import Home from '../index';
 
-class AboutProvider extends Page.Provider{
+
+class HomeProvider extends Page.Provider{
     constructor(props){
         super(props);
     }
     render(){
         return (
-            <About page={this.page}/>
+            <Home page={this.page}/>
         );
     }
 }
@@ -21,7 +22,7 @@ class AboutProvider extends Page.Provider{
 export default withRouter(connect(
     (state,ownProps) => {
         //always first
-        const slug = 'about';
+        const slug = 'home';
         const {list} = state.pages;
         return {
             page:list.find(p=>p.slug===slug),
@@ -33,4 +34,4 @@ export default withRouter(connect(
             dispatch(getPage(slug));
         }
     })
-)(AboutProvider));
+)(HomeProvider));

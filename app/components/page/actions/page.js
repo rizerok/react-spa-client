@@ -5,29 +5,23 @@ import {
 } from 'components/app/actions/current-state';
 
 export const getPage = (slug) => (dispatch,getState) => {//actions creator
+    //always
     dispatch(currentStateStartChange());
+
     //find in cache
     const store = getState();
-    let page = store.pages && store.pages.list && store.pages.list.find(p=>p.slug===slug);
+    let page = store.pages.list && store.pages.list.find(p=>p.slug===slug);
     if(page){
-        return dispatch({//action
-            type:'GET_PAGE',
-            payload:{
-                page,
-                source:'cache'
-            }
-        });
+        return page;
     }
     //if no find - fetch
     dispatch(currentStateRequest());
     dispatch({//action
-        type:'GET',
+        type:'PAGE_REQUEST',
         payload:{
-            page,
-            source:'cache'
+            page
         }
     });
-    
     setTimeout(()=>{
         return fetch(`/api/${slug}.json`,{
             method:'GET'
@@ -36,10 +30,9 @@ export const getPage = (slug) => (dispatch,getState) => {//actions creator
             .then(page=>{
                 //https://github.com/acdlite/flux-standard-action
                 dispatch({//action
-                    type:'GET_PAGE',
+                    type:'PAGE_SUCCESS',
                     payload:{
-                        page,
-                        source:'fetch'
+                        page
                     }
                 });
                 dispatch(currentStateReceive());

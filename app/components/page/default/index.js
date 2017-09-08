@@ -1,32 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
 import style from './page-default.styl';
 
+import Page from '../classes/';
 
-import UiPreloader from 'components/ui/preloader';
-
-class PageDefault extends React.Component{
+class PageDefault extends Page.Default{
     constructor(props){
         super(props);
-    }
-    render(){
-        let content;
-        if(this.props.page){
-            content = (
-                <div>
-                    <div>{this.props.page.title}</div>
-                    <div>{this.props.page.content}</div>
-                </div>
-            );
-        }else{
-            content = <UiPreloader />;
-        }
-        return (
-            <div className={style.pageDefault}>
-                {content}
-            </div>
-        );
     }
 }
 
