@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
@@ -35,6 +35,6 @@ class NavListFooter extends React.Component{
     }
 }
 
-export default connect(
+export default withRouter(connect(
     ({nav:{list}})=>({list:list.filter(n=>n.bottom)})
-)(NavListFooter);
+)(NavListFooter));

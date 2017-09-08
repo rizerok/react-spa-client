@@ -3,38 +3,20 @@ import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import style from './page-default.styl';
 
-import { getPage } from '../actions/page';
 
 import UiPreloader from 'components/ui/preloader';
 
 class PageDefault extends React.Component{
     constructor(props){
         super(props);
-        this.page = null;
-        this.slug = props.match.params.slug;
-    }
-    getPage(){
-        this.props.getPage(this.slug);
-    }
-    componentWillMount(){
-        this.getPage();
-    }
-    componentWillReceiveProps(nextProps){
-        if(this.slug !== nextProps.match.params.slug){
-            this.slug = nextProps.match.params.slug;
-            this.getPage();
-        }else{
-            this.slug = nextProps.match.params.slug;
-        }
-        this.page = nextProps.page;
     }
     render(){
         let content;
-        if(this.page){
+        if(this.props.page){
             content = (
                 <div>
-                    <div>{this.page.title}</div>
-                    <div>{this.page.content}</div>
+                    <div>{this.props.page.title}</div>
+                    <div>{this.props.page.content}</div>
                 </div>
             );
         }else{
@@ -48,16 +30,4 @@ class PageDefault extends React.Component{
     }
 }
 
-export default withRouter(connect(
-    (state,ownProps) => {
-        const {slug} = ownProps.match.params;
-        const {list} = state.pages;
-        const newState = {page:list.find(p=>p.slug===slug)};
-        return newState;
-    },
-    dispatch  => ({
-        getPage: (slug) => {
-            dispatch(getPage(slug));
-        }
-    })
-)(PageDefault));
+export default PageDefault;

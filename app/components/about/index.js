@@ -1,16 +1,19 @@
 import React from 'react';
-import PageDefault from 'components/page/default';
+
 import style from './about.styl';
 
-class About extends PageDefault{
+import PageProvider from 'components/page/provider';
+//console.log('PageProvider',PageProvider);
+
+class About extends PageProvider{
     constructor(){
         super();
     }
-    render(){
-        return (
-            <div>About</div>
-        );
-    }
+    // render(){
+    //     return (
+    //         <div>About</div>
+    //     );
+    // }
 }
 
 export default About;

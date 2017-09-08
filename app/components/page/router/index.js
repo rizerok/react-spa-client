@@ -1,9 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
-import style from './page-router.styl';
 
-import PageDefault from '../default';
+import PageProvider from '../provider';
 
 class PageRouter extends React.Component{
     constructor(props){
@@ -11,7 +10,7 @@ class PageRouter extends React.Component{
     }
     render(){
         return (
-            <Route path="/page/:slug" component={PageDefault} />
+            <Route path="/page/:slug" component={PageProvider} />
         );
     }
 }

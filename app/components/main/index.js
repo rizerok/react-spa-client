@@ -11,7 +11,6 @@ import style from './main.styl';
 import Home from 'components/home';
 import About from 'components/about';
 
-import PageDefault from 'components/page/default';
 import PageRouter from 'components/page/router';
 
 class Main extends React.Component{
@@ -22,7 +21,7 @@ class Main extends React.Component{
         return (
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/about" render={()=><div>About</div>} />
+                <Route path="/about" component={About} />
                 <Route path="/page" component={PageRouter} />
                 <Route render={()=><div>Page not found</div>} />
             </Switch>
