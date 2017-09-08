@@ -6,14 +6,12 @@ import {
     NavLink
 } from 'react-router-dom';
 
-import style from './main.styl';
-
 import HomeProvider from 'components/home/provider';
 import AboutProvider from 'components/about/provider';
 
 import PageRouter from 'components/page/router';
 
-class Main extends React.Component{
+class MainRouter extends React.Component{
     constructor(){
         super();
     }
@@ -28,5 +26,5 @@ class Main extends React.Component{
         );
     }
 }
-//<Route path="/page" component={PageRouter} />
-export default Main;
+
+export default MainRouter;

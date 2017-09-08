@@ -39,5 +39,5 @@ class NavListAside extends React.Component{
 }
 
 export default withRouter(connect(
-    ({nav:{list}}) => ({list})
+    ({primaryData:{nav:{list}}}) => ({list})
 )(NavListAside));

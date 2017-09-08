@@ -35,5 +35,5 @@ class NavListHeader extends React.Component{
 }
 
 export default withRouter(connect(
-    ({nav:{list}})=>({list})
+    ({primaryData:{nav:{list}}})=>({list:list.filter(n=>n.top)})
 )(NavListHeader));

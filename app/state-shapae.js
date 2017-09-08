@@ -1,5 +1,5 @@
 let stateShape = {
-    primary:{
+    primaryData:{
         company:{
             phone:'88002006000',
             siteInfo:'@ 2017 company name'

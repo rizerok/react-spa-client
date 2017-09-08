@@ -36,5 +36,5 @@ class NavListFooter extends React.Component{
 }
 
 export default withRouter(connect(
-    ({nav:{list}})=>({list:list.filter(n=>n.bottom)})
+    ({primaryData:{nav:{list}}})=>({list:list.filter(n=>n.bottom)})
 )(NavListFooter));
