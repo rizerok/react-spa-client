@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 
-import style from './nav-list-horizontal.styl';
+import style from './nav-list-footer.styl';
 
-class NavListHorizontal extends React.Component{
+class NavListFooter extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         let navList = null;
-        if(this.props.nav){
+        if(this.props.list){
             navList = <ul className={style.list}>
-                {this.props.nav.map((n,i)=>(
+                {this.props.list.map((n,i)=>(
                     <li key={i}>
                         <NavLink className={style.listItem}
                                  to={n.url}
@@ -34,4 +35,6 @@ class NavListHorizontal extends React.Component{
     }
 }
 
-export default NavListHorizontal;
+export default connect(
+    ({nav:{list}})=>({list:list.filter(n=>n.bottom)})
+)(NavListFooter);

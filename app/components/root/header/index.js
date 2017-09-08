@@ -2,7 +2,7 @@ import React from 'react';
 import style from './root-header.styl';
 import { Provider } from 'react-redux';
 
-import NavDropDownList from 'components/nav/drop-down-list';
+import NavListHeader from 'components/nav/list-header';
 import NavBurger from 'components/nav/burger';
 
 
@@ -14,7 +14,7 @@ class RootHeader extends React.Component{
         const {phone} = this.props.company;
         return (
             <div className={style.header}>
-                <NavDropDownList
+                <NavListHeader
                     nav={this.props.nav}
                     active
                 />

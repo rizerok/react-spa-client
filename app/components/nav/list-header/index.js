@@ -2,17 +2,17 @@ import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import style from './nav-drop-down-list.styl';
+import style from './nav-list-header.styl';
 
-class NavDropDownList extends React.Component{
+class NavListHeader extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         let navList = null;
-        if(this.props.nav){
+        if(this.props.list){
             navList = <ul className={style.list}>
-                {this.props.nav.map((n,i)=>(
+                {this.props.list.map((n,i)=>(
                     <li key={i}>
                         <NavLink className={style.listItem}
                                  to={n.url}
@@ -27,11 +27,13 @@ class NavDropDownList extends React.Component{
             </ul>;
         }
         return (
-                <nav className={style.navDropDownList}>
+                <nav>
                     {navList}
                 </nav>
         );
     }
 }
 
-export default NavDropDownList;
+export default connect(
+    ({nav:{list}})=>({list})
+)(NavListHeader);

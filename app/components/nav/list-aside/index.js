@@ -3,9 +3,9 @@ import { BrowserRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
-import style from './nav-list-vertical.styl';
+import style from './nav-list-aside.styl';
 
-class NavListVertical extends React.Component{
+class NavListAside extends React.Component{
     constructor(props){
         super(props);
     }
@@ -40,4 +40,4 @@ class NavListVertical extends React.Component{
 
 export default connect(
     ({nav:{list}}) => ({list})
-)(NavListVertical);
+)(NavListAside);

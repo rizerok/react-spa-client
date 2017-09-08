@@ -8,7 +8,7 @@ import {
     switchAside,
     addCloseEventFn
 } from 'components/nav/actions/aside';
-import NavListVertical from 'components/nav/list-vertical';
+import NavListAside from 'components/nav/list-aside';
 
 class RootAside extends React.Component{
     constructor(props){
@@ -36,7 +36,7 @@ class RootAside extends React.Component{
                     [style.isActive]:this.props.asideMenu.open
                 })
             }>
-                <NavListVertical />
+                <NavListAside />
             </aside>
         );
     }
