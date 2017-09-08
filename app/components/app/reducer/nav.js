@@ -9,7 +9,7 @@ export default function(state = initialState,action){
         case 'NAV_REQUEST':{
             break;
         }
-        case 'NAV_RECEIVE':{
+        case 'NAV_SUCCESS':{
             return {
                 ...state,
                 list:action.payload

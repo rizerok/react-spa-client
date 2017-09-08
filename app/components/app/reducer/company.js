@@ -8,7 +8,7 @@ export default function(state = initialState,action){
         case 'COMPANY_REQUEST':{
             break;
         }
-        case 'COMPANY_RECEIVE':{
+        case 'COMPANY_SUCCESS':{
             return {
                 ...state,
                 ...action.payload

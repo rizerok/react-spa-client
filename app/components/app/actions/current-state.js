@@ -9,5 +9,5 @@ export const currentStateRequest = () => dispatch =>{
 };
 export const currentStateReceive = () => dispatch =>{
     switchAside(false);
-    dispatch({type:'CURRENT_STATE_RECEIVE'});
+    dispatch({type:'CURRENT_STATE_SUCCESS'});
 };

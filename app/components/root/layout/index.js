@@ -10,14 +10,9 @@ import Main from 'components/main';
 import UiPreloader from 'components/ui/preloader';
 import RootAside from '../aside';
 
-import { getPrimaryData } from './actions';
-
 class RootLayout extends React.Component{
     constructor(props){
         super(props);
-    }
-    componentWillMount(){
-        this.props.getPrimaryData();
     }
     render(){
         const {state,currentState} = this.props;
@@ -50,10 +45,5 @@ class RootLayout extends React.Component{
 export default withRouter(connect(
     state => {
         return state;
-    },
-    dispatch => ({
-        getPrimaryData:() => {
-            return dispatch(getPrimaryData());
-        }
-    })
+    }
 )(RootLayout));

@@ -10,7 +10,7 @@ export default function(state = initialState,action){
                 isFetching:true
             };
         }
-        case 'PRIMARY_DATA_RECEIVE':{
+        case 'PRIMARY_DATA_SUCCESS':{
             return {
                 ...state,
                 isFetching:false

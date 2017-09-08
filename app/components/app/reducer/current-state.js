@@ -11,7 +11,7 @@ export default function(state = initialData,action){
                 isFetching:true
             };
         }
-        case 'CURRENT_STATE_RECEIVE':{
+        case 'CURRENT_STATE_SUCCESS':{
             return {
                 ...state,
                 isFirstFetch:false,
