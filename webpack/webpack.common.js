@@ -20,7 +20,8 @@ module.exports = {
             app:path.resolve('app'),
             components:path.resolve('app','components'),
             styles:path.resolve('assets','styles'),
-            fonts:path.resolve('assets','fonts')
+            fonts:path.resolve('assets','fonts'),
+            img:path.resolve('assets','images')
         }
     },
     module:{
