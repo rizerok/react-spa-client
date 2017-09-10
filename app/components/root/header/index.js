@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import NavListHeader from 'components/nav/list-header';
 import NavBurger from 'components/nav/burger';
+import Logo from 'components/ui/logo';
 
 
 class RootHeader extends React.Component{
@@ -14,6 +15,7 @@ class RootHeader extends React.Component{
         const {phone} = this.props.company;
         return (
             <div className={style.header}>
+                <Logo />
                 <NavListHeader
                     nav={this.props.nav}
                     active

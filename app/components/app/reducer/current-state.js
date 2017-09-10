@@ -1,6 +1,6 @@
 const initialData = {
     isFirstFetch:true,
-    isFetching:true
+    isFetching:false
 };
 
 export default function(state = initialData,action){
@@ -11,6 +11,7 @@ export default function(state = initialData,action){
                 isFetching:true
             };
         }
+        case 'CURRENT_STATE_ERROR':
         case 'CURRENT_STATE_SUCCESS':{
             return {
                 ...state,
