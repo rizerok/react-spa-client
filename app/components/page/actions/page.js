@@ -22,21 +22,20 @@ export const getPage = (slug) => (dispatch,getState) => {//actions creator
             page
         }
     });
-    setTimeout(()=>{
-        return fetch(`/api/${slug}.json`,{
-            method:'GET'
-        })
-            .then(resp=>resp.json())
-            .then(page=>{
-                //https://github.com/acdlite/flux-standard-action
-                dispatch({//action
-                    type:'PAGE_SUCCESS',
-                    payload:{
-                        page
-                    }
-                });
-                dispatch(currentStateReceive());
+    return fetch(`/api/${slug}.json`,{
+        method:'GET'
+    })
+        .then(resp=>resp.json())
+        .then(page=>{
+            //https://github.com/acdlite/flux-standard-action
+            dispatch({//action
+                type:'PAGE_SUCCESS',
+                payload:{
+                    page
+                }
             });
+            dispatch(currentStateReceive());
+        });
 
-    },2000);
+
 };
