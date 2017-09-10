@@ -51,6 +51,26 @@ module.exports = {
                         cacheDirectory:true
                     }
                 }
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg|ico)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name:path.join('bundle','images','[name].js')
+                    }
+                },
+                exclude: /node_modules/
+            },
+            {
+                test: /fonts\/.*\.(eot|svg|ttf|woff|woff2)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name:path.join('bundle','fonts','[name].js')
+                    }
+                }
+
             }
         ]
     },
